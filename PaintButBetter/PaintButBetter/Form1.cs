@@ -10,12 +10,27 @@ namespace PaintButBetter
         private Graphics graphics;
         private bool isDrawing = false;
         private Point lastPoint;
+        /*private Timer autoSaveTimer;
+        private Button clearButton;*/
+
 
         public Form1()
         {
             InitializeComponent();
             InitializeCanvas();
             HookEvents();
+
+            /*clearButton = new Button(); //creates a new button object
+            clearButton.Text = "Clear"; //sets the button text as clear
+            clearButton.Click += ClearButton_Click; //attatches the clear button click method to the button
+            Controls.Add(clearButton); //shows the button on form
+
+            autoSaveTimer = new Timer(); //create new timer 
+            autoSaveTimer.Interval = x; //set to however long want
+            autoSaveTimer.Tick += AutoSaveTimer_Tick; //same as button logic, sets timer to the actual save
+            autoSaveTimer.Start();*/
+
+
         }
 
         private void InitializeCanvas()
@@ -115,5 +130,17 @@ namespace PaintButBetter
         {
             // ignore
         }
+        /*private void ClearButton_Click(object sender, EventArgs e)
+        {    
+            canvasGraphics.Clear(Color.White);   //fills canvas white     
+            pictureBox1.Invalidate();     // Refresh the screen
+        }
+        
+        private void AutoSaveTimer_Tick(object sender, EventArgs e)
+        {
+            string path = "autosave.png"; //autosave file
+            canvas.Save(path, System.Drawing.Imaging.ImageFormat.Png);  
+        }*/
+
     }
 }
