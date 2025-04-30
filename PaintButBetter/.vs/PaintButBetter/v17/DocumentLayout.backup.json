@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\hummj\\source\\repos\\csharpfinalproject\\paintbutbetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\hummj\\source\\repos\\csharpfinalproject\\paintbutbetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,57 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Form1.cs",
               "ToolTip": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.cs",
               "RelativeToolTip": "PaintButBetter\\Form1.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAA7wA8AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAALAAAAAAAAAAAAAswMYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T16:12:11.11Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Program.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Program.cs",
               "ToolTip": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Program.cs",
               "RelativeToolTip": "PaintButBetter\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T16:01:56.015Z"
+              "WhenOpened": "2025-04-24T16:01:56.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
               "RelativeToolTip": "PaintButBetter\\Form1.Designer.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAswLEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAJYAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T15:57:41.314Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.cs",
-              "RelativeDocumentMoniker": "PaintButBetter\\Form1.cs",
-              "ToolTip": "C:\\Users\\hummj\\source\\repos\\CSharpFinalProject\\PaintButBetter\\PaintButBetter\\Form1.cs [Design]",
-              "RelativeToolTip": "PaintButBetter\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T15:47:06.583Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

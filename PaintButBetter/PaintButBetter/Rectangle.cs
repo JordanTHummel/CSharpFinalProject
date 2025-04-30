@@ -6,7 +6,8 @@
         protected int width;
         public Rectangle(bool fill, Color color, int height, int width) : base(4, fill, color)
         {
-            if(height < 0)
+            // Checking
+            if (height < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(height));
             }
@@ -14,6 +15,7 @@
             {
                 throw new ArgumentOutOfRangeException(nameof(width));
             }
+            // Setting
             this.height = height;
             this.width = width;
         }

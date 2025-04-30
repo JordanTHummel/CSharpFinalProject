@@ -149,6 +149,7 @@
             ShapesButton.Text = "Shapes";
             ShapesButton.UseVisualStyleBackColor = false;
             ShapesButton.Click += this.ShapesButton_Click;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // TextLabelButton
             // 
