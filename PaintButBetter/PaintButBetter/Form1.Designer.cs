@@ -99,6 +99,7 @@
             pictureBox1.Size = new Size(1404, 860);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // SaveButton
             // 
@@ -149,7 +150,6 @@
             ShapesButton.Text = "Shapes";
             ShapesButton.UseVisualStyleBackColor = false;
             ShapesButton.Click += this.ShapesButton_Click;
-            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // TextLabelButton
             // 

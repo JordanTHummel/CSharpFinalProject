@@ -90,7 +90,7 @@ namespace PaintButBetter
             // color mode
         }
 
-        private void ShapesButton_Click(object sender, EventArgs e)
+        private void ShapesButton_Click(object sender, EventArgs e) // Jordan
         {
             // Create a new window, displaying shape options to select from
             using (Form shapeForm = new Form())
@@ -101,6 +101,7 @@ namespace PaintButBetter
                 Button rectButton = new Button
                 {
                     Text = "Rectangle",
+                    // Makes sure buttons are aligned from top to bottom
                     Dock = DockStyle.Top
                 };
                 // Button for selecting to draw a square
@@ -121,7 +122,8 @@ namespace PaintButBetter
                     Text = "Triangle",
                     Dock = DockStyle.Top
                 };
-                // Using a lambda expression, on click of one the elements to set field shapeToDraw
+                // Using a lambda expression, to add an event handler on click of one the elements to set field shapeToDraw
+                // Just updates the shapeToDraw element and then closes the new form
                 rectButton.Click += (s, ev) =>
                 {
                     shapeToDraw = "Rectangle";
@@ -144,37 +146,48 @@ namespace PaintButBetter
                 };
                 // Adding each of the buttons to the shapeform
                 shapeForm.Controls.AddRange(new Control[] { triangleButton, circleButton, squareButton, rectButton });
-                // Must select a shape or exit before moving on
+                // Below will make it so must select a shape or exit before moving on
                 shapeForm.ShowDialog();
             }
         }
 
-        private void TextLabelButton_Click(object sender, EventArgs e)
+        private void TextLabelButton_Click(object sender, EventArgs e) // Jordan
         {
+            // Very similiar to the shapes
             using (Form textForm = new Form())
             {
                 textForm.Text = "Enter Text";
                 textForm.Size = new Size(300, 150);
-
-                TextBox inputBox = new TextBox { Dock = DockStyle.Top };
-                Button drawTextButton = new Button { Text = "OK", Dock = DockStyle.Bottom };
-
+                TextBox inputBox = new TextBox 
+                { 
+                    Dock = DockStyle.Top 
+                };
+                Button drawTextButton = new Button 
+                { 
+                    Text = "OK", 
+                    Dock = DockStyle.Bottom 
+                };
+                // Using lambda expression to add
                 drawTextButton.Click += (s, ev) =>
                 {
+                    // If something was entered and the button to submit was clicked
                     if (!string.IsNullOrWhiteSpace(inputBox.Text))
                     {
+                        // Update the textToDraw variable
                         textToDraw = inputBox.Text;
+                        // Close the form
                         textForm.Close();
                     }
                 };
-
+                // Add the elements of the form to the form
                 textForm.Controls.Add(inputBox);
                 textForm.Controls.Add(drawTextButton);
+                // Below will make it so must submit text or exit before moving on
                 textForm.ShowDialog();
             }
         }
 
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e) // Jordan
         {
             // Sanity check
             if (graphics == null)
