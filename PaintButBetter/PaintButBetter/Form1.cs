@@ -1,17 +1,18 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Timer = System.Windows.Forms.Timer; //timer was giving error that timer was ambigious between to different classes and need to specify
+
 
 namespace PaintButBetter
-{
+    {
     public partial class Form1 : Form
     {
         private Bitmap canvas;
         private Graphics graphics;
         private bool isDrawing = false;
         private Point lastPoint;
-        /*private Timer autoSaveTimer;
-        private Button clearButton;*/
+        private Timer autoSaveTimer;
 
 
         public Form1()
@@ -20,15 +21,12 @@ namespace PaintButBetter
             InitializeCanvas();
             HookEvents();
 
-            /*clearButton = new Button(); //creates a new button object
-            clearButton.Text = "Clear"; //sets the button text as clear
-            clearButton.Click += ClearButton_Click; //attatches the clear button click method to the button
-            Controls.Add(clearButton); //shows the button on form
+          
 
             autoSaveTimer = new Timer(); //create new timer 
-            autoSaveTimer.Interval = x; //set to however long want
+            autoSaveTimer.Interval = 1000; //set to however long want
             autoSaveTimer.Tick += AutoSaveTimer_Tick; //same as button logic, sets timer to the actual save
-            autoSaveTimer.Start();*/
+            autoSaveTimer.Start();
 
 
         }
@@ -130,17 +128,19 @@ namespace PaintButBetter
         {
             // ignore
         }
-        /*private void ClearButton_Click(object sender, EventArgs e)
-        {    
-            canvasGraphics.Clear(Color.White);   //fills canvas white     
-            pictureBox1.Invalidate();     // Refresh the screen
-        }
         
+
         private void AutoSaveTimer_Tick(object sender, EventArgs e)
         {
             string path = "autosave.png"; //autosave file
-            canvas.Save(path, System.Drawing.Imaging.ImageFormat.Png);  
-        }*/
+            canvas.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+        }
 
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White); //fills canvas white
+            pictureBox1.Invalidate();     // Refresh the screen
+
+        }
     }
 }
