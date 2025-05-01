@@ -1,4 +1,4 @@
-﻿namespace PaintButBetter
+namespace PaintButBetter
 {
     partial class Form1
     {
@@ -36,6 +36,7 @@
             LoadButton = new Button();
             ShapesButton = new Button();
             TextLabelButton = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             BrushButton.TabIndex = 0;
             BrushButton.Text = "Brush";
             BrushButton.UseVisualStyleBackColor = false;
-            BrushButton.Click += this.BrushButton_Click;
+            BrushButton.Click += BrushButton_Click;
             // 
             // EraserButton
             // 
@@ -71,7 +72,7 @@
             EraserButton.TabIndex = 1;
             EraserButton.Text = "Eraser";
             EraserButton.UseVisualStyleBackColor = false;
-            EraserButton.Click += this.EraserButton_Click;
+            EraserButton.Click += EraserButton_Click;
             // 
             // BrushColorButton
             // 
@@ -88,7 +89,7 @@
             BrushColorButton.TabIndex = 2;
             BrushColorButton.Text = "Brush Color";
             BrushColorButton.UseVisualStyleBackColor = false;
-            BrushColorButton.Click += this.BrushColorButton_Click;
+            BrushColorButton.Click += BrushColorButton_Click;
             // 
             // pictureBox1
             // 
@@ -115,7 +116,7 @@
             SaveButton.TabIndex = 4;
             SaveButton.Text = "Save";
             SaveButton.UseVisualStyleBackColor = false;
-            SaveButton.Click += this.SaveButton_Click;
+            SaveButton.Click += SaveButton_Click;
             // 
             // LoadButton
             // 
@@ -148,7 +149,7 @@
             ShapesButton.TabIndex = 6;
             ShapesButton.Text = "Shapes";
             ShapesButton.UseVisualStyleBackColor = false;
-            ShapesButton.Click += this.ShapesButton_Click;
+            ShapesButton.Click += ShapesButton_Click;
             // 
             // TextLabelButton
             // 
@@ -167,6 +168,23 @@
             TextLabelButton.UseVisualStyleBackColor = false;
             TextLabelButton.Click += TextLabelButton_Click;
             // 
+            // button1
+            // 
+            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button1.BackColor = Color.WhiteSmoke;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.BorderSize = 4;
+            button1.FlatStyle = FlatStyle.System;
+            button1.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ControlDarkDark;
+            button1.Location = new Point(753, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(122, 94);
+            button1.TabIndex = 8;
+            button1.Text = "Cear";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += ClearButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -174,6 +192,7 @@
             AutoSize = true;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(1465, 1062);
+            Controls.Add(button1);
             Controls.Add(TextLabelButton);
             Controls.Add(ShapesButton);
             Controls.Add(LoadButton);
@@ -199,5 +218,6 @@
         private Button LoadButton;
         private Button ShapesButton;
         private Button TextLabelButton;
+        private Button button1;
     }
 }
