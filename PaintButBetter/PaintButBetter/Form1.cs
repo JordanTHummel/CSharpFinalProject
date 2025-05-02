@@ -121,7 +121,19 @@ namespace PaintButBetter
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            // import
+            using (OpenFileDialog openDialog = new OpenFileDialog())
+            {
+                openDialog.Title = "Enter Image Import Location";
+                openDialog.Filter = "PNG Image|*.png";
+
+                if (openDialog.ShowDialog() == DialogResult.OK)
+                {
+                    graphics.DrawImage(Image.FromFile(openDialog.FileName), 0, 0);
+                    pictureBox1.Image = canvas;
+                }
+
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
