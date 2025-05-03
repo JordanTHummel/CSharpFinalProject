@@ -1,6 +1,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+	using System.Collections.Generic;
     using Timer = System.Windows.Forms.Timer; //timer was giving error that timer was ambigious between to different classes and need to specify
 
 
@@ -47,10 +48,21 @@ namespace PaintButBetter
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            isDrawing = true;
-            lastPoint = e.Location;
-        }
+		{
+    		if (penToolStripMenuItem.Checked)
+    		{
+        		isDrawing = true;
+        		lastPoint = e.Location;
+	    	}
+
+    		if (fillToolStripMenuItem.Checked)
+		    {
+		        Color inital = canvas.GetPixel(e.X, e.Y); //gets color of initial pixel (we're filling in all pixels of that color)
+		        Color replacement = Color.Blue; //we'll figure out color later, blue for now
+		        Fill(e.X, e.Y, inital, replacement); //calls method to fill in pixel
+		        
+		    }
+		}
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // this will have to be changed when you work on brush
         {
@@ -72,12 +84,14 @@ namespace PaintButBetter
 
         private void BrushButton_Click(object sender, EventArgs e)
         {
-            // brush button
+            UncheckTools();
+			penToolStripMenuItem.Checked = true;
         }
 
         private void EraserButton_Click(object sender, EventArgs e)
         {
-            // eraser mode
+            UncheckTools();
+			eraserToolStripMenuItem.Checked = true;
         }
 
         private void BrushColorButton_Click(object sender, EventArgs e)
@@ -94,6 +108,49 @@ namespace PaintButBetter
         {
             // add text
         }
+
+  		private void FillButton_Click(object sender, EventArgs e)
+		{
+		    UncheckTools();
+		    fillToolStripMenuItem.Checked = true;
+		}
+
+		private void Fill(int x, int y, Color initial, Color replacement)
+		{
+		
+		    Stack<Point> pixels = new Stack<Point>(); //creates stack to hold pixels to fill
+		
+		    bool[,] alreadyVisited = new bool[canvas.Width, canvas.Height]; //prevents checking same pixels twice
+		
+		    pixels.Push(new Point(x, y)); //creates starting point from mouse
+		
+		    while (pixels.Count > 0) //looping while there's more pixels to fill
+		    {
+		        Point p = pixels.Pop();
+		        int nextX = p.X;
+		        int nextY = p.Y;
+		
+		        if (nextX < 0 || nextY < 0 || nextX >= canvas.Width || nextY >= canvas.Height) continue;
+		
+		        if (alreadyVisited[nextX, nextY]) continue;
+		
+		        if (canvas.GetPixel(nextX, nextY) != initial) continue;
+		
+		        alreadyVisited[nextX, nextY] = true;
+		
+		        canvas.SetPixel(nextX, nextY, replacement);
+		
+		        pixels.Push(new Point(nextX + 1, nextY));
+		        pixels.Push(new Point(nextX - 1, nextY));
+		        pixels.Push(new Point(nextX, nextY + 1));
+		        pixels.Push(new Point(nextX, nextY - 1));
+		    }
+		
+		
+		    pictureBox1.Invalidate();
+		
+		}
+
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -136,6 +193,14 @@ namespace PaintButBetter
 
         }
 
+		private void UncheckTools()
+		{
+		    penToolStripMenuItem.Checked = false;
+		    eraserToolStripMenuItem.Checked = false;
+		    fillToolStripMenuItem.Checked = false;
+		    //add more as we add more tools
+		}
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // ignore
@@ -154,5 +219,14 @@ namespace PaintButBetter
             pictureBox1.Invalidate();     // Refresh the screen
 
         }
+		private void toolStripLabel1_Click(object sender, EventArgs e)
+		{
+			//haven't used yet
+		}
+		
+		private void brushToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//haven't used yet
+		}
     }
 }
