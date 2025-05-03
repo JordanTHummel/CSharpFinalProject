@@ -133,6 +133,7 @@ namespace PaintButBetter
             LoadButton.TabIndex = 5;
             LoadButton.Text = "Load";
             LoadButton.UseVisualStyleBackColor = false;
+            LoadButton.Click += LoadButton_Click;
             // 
             // ShapesButton
             // 
@@ -181,7 +182,7 @@ namespace PaintButBetter
             button1.Name = "button1";
             button1.Size = new Size(122, 94);
             button1.TabIndex = 8;
-            button1.Text = "Cear";
+            button1.Text = "Clear";
             button1.UseVisualStyleBackColor = false;
             button1.Click += ClearButton_Click;
             // 
