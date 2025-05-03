@@ -28,197 +28,191 @@ namespace PaintButBetter
         /// </summary>
         private void InitializeComponent()
         {
-            BrushButton = new Button();
-            EraserButton = new Button();
-            BrushColorButton = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
-            SaveButton = new Button();
-            LoadButton = new Button();
-            ShapesButton = new Button();
-            TextLabelButton = new Button();
-            button1 = new Button();
+            toolStrip1 = new ToolStrip();
+            toolStripDropDownButton2 = new ToolStripDropDownButton();
+            loadToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            toolStripDropDownButton3 = new ToolStripDropDownButton();
+            clearToolStripMenuItem = new ToolStripMenuItem();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            brushesToolStripMenuItem = new ToolStripMenuItem();
+            penToolStripMenuItem = new ToolStripMenuItem();
+            eraserToolStripMenuItem = new ToolStripMenuItem();
+            eraToolStripMenuItem = new ToolStripMenuItem();
+            squareToolStripMenuItem = new ToolStripMenuItem();
+            circleToolStripMenuItem = new ToolStripMenuItem();
+            textToolStripMenuItem = new ToolStripMenuItem();
+            fillToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // BrushButton
-            // 
-            BrushButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BrushButton.BackColor = Color.WhiteSmoke;
-            BrushButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            BrushButton.FlatAppearance.BorderSize = 4;
-            BrushButton.FlatStyle = FlatStyle.System;
-            BrushButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BrushButton.ForeColor = SystemColors.ControlDarkDark;
-            BrushButton.Location = new Point(24, 12);
-            BrushButton.Name = "BrushButton";
-            BrushButton.Size = new Size(111, 94);
-            BrushButton.TabIndex = 0;
-            BrushButton.Text = "Brush";
-            BrushButton.UseVisualStyleBackColor = false;
-            BrushButton.Click += BrushButton_Click;
-            // 
-            // EraserButton
-            // 
-            EraserButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            EraserButton.BackColor = Color.WhiteSmoke;
-            EraserButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            EraserButton.FlatAppearance.BorderSize = 4;
-            EraserButton.FlatStyle = FlatStyle.System;
-            EraserButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            EraserButton.ForeColor = SystemColors.ControlDarkDark;
-            EraserButton.Location = new Point(160, 12);
-            EraserButton.Name = "EraserButton";
-            EraserButton.Size = new Size(111, 94);
-            EraserButton.TabIndex = 1;
-            EraserButton.Text = "Eraser";
-            EraserButton.UseVisualStyleBackColor = false;
-            EraserButton.Click += EraserButton_Click;
-            // 
-            // BrushColorButton
-            // 
-            BrushColorButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BrushColorButton.BackColor = Color.WhiteSmoke;
-            BrushColorButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            BrushColorButton.FlatAppearance.BorderSize = 4;
-            BrushColorButton.FlatStyle = FlatStyle.System;
-            BrushColorButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BrushColorButton.ForeColor = SystemColors.ControlDarkDark;
-            BrushColorButton.Location = new Point(296, 12);
-            BrushColorButton.Name = "BrushColorButton";
-            BrushColorButton.Size = new Size(145, 94);
-            BrushColorButton.TabIndex = 2;
-            BrushColorButton.Text = "Brush Color";
-            BrushColorButton.UseVisualStyleBackColor = false;
-            BrushColorButton.Click += BrushColorButton_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ActiveBorder;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(24, 129);
+            pictureBox1.Location = new Point(17, 77);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1404, 860);
+            pictureBox1.Size = new Size(983, 517);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // SaveButton
+            // toolStrip1
             // 
-            SaveButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            SaveButton.BackColor = Color.WhiteSmoke;
-            SaveButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            SaveButton.FlatAppearance.BorderSize = 4;
-            SaveButton.FlatStyle = FlatStyle.System;
-            SaveButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SaveButton.ForeColor = SystemColors.ControlDarkDark;
-            SaveButton.Location = new Point(1318, 12);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(110, 94);
-            SaveButton.TabIndex = 4;
-            SaveButton.Text = "Save";
-            SaveButton.UseVisualStyleBackColor = false;
-            SaveButton.Click += SaveButton_Click;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton2, toolStripDropDownButton3, toolStripDropDownButton1 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.ShowItemToolTips = false;
+            toolStrip1.Size = new Size(1026, 25);
+            toolStrip1.TabIndex = 10;
+            toolStrip1.Text = "toolStrip1";
             // 
-            // LoadButton
+            // toolStripDropDownButton2
             // 
-            LoadButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            LoadButton.BackColor = Color.WhiteSmoke;
-            LoadButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            LoadButton.FlatAppearance.BorderSize = 4;
-            LoadButton.FlatStyle = FlatStyle.System;
-            LoadButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LoadButton.ForeColor = SystemColors.ControlDarkDark;
-            LoadButton.Location = new Point(1188, 12);
-            LoadButton.Name = "LoadButton";
-            LoadButton.Size = new Size(110, 94);
-            LoadButton.TabIndex = 5;
-            LoadButton.Text = "Load";
-            LoadButton.UseVisualStyleBackColor = false;
-            LoadButton.Click += LoadButton_Click;
+            toolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { loadToolStripMenuItem, saveToolStripMenuItem });
+            toolStripDropDownButton2.Image = (Image)resources.GetObject("toolStripDropDownButton2.Image");
+            toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            toolStripDropDownButton2.Size = new Size(38, 22);
+            toolStripDropDownButton2.Text = "File";
             // 
-            // ShapesButton
+            // loadToolStripMenuItem
             // 
-            ShapesButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ShapesButton.BackColor = Color.WhiteSmoke;
-            ShapesButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            ShapesButton.FlatAppearance.BorderSize = 4;
-            ShapesButton.FlatStyle = FlatStyle.System;
-            ShapesButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ShapesButton.ForeColor = SystemColors.ControlDarkDark;
-            ShapesButton.Location = new Point(473, 12);
-            ShapesButton.Name = "ShapesButton";
-            ShapesButton.Size = new Size(122, 94);
-            ShapesButton.TabIndex = 6;
-            ShapesButton.Text = "Shapes";
-            ShapesButton.UseVisualStyleBackColor = false;
-            ShapesButton.Click += ShapesButton_Click;
+            loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            loadToolStripMenuItem.Size = new Size(100, 22);
+            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Click += LoadButton_Click;
             // 
-            // TextLabelButton
+            // saveToolStripMenuItem
             // 
-            TextLabelButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            TextLabelButton.BackColor = Color.WhiteSmoke;
-            TextLabelButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            TextLabelButton.FlatAppearance.BorderSize = 4;
-            TextLabelButton.FlatStyle = FlatStyle.System;
-            TextLabelButton.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TextLabelButton.ForeColor = SystemColors.ControlDarkDark;
-            TextLabelButton.Location = new Point(625, 12);
-            TextLabelButton.Name = "TextLabelButton";
-            TextLabelButton.Size = new Size(122, 94);
-            TextLabelButton.TabIndex = 7;
-            TextLabelButton.Text = "Text";
-            TextLabelButton.UseVisualStyleBackColor = false;
-            TextLabelButton.Click += TextLabelButton_Click;
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(100, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += SaveButton_Click;
             // 
-            // button1
+            // toolStripDropDownButton3
             // 
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = Color.WhiteSmoke;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            button1.FlatAppearance.BorderSize = 4;
-            button1.FlatStyle = FlatStyle.System;
-            button1.Font = new Font("Franklin Gothic Medium Cond", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ControlDarkDark;
-            button1.Location = new Point(753, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 94);
-            button1.TabIndex = 8;
-            button1.Text = "Clear";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += ClearButton_Click;
+            toolStripDropDownButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton3.DropDownItems.AddRange(new ToolStripItem[] { clearToolStripMenuItem });
+            toolStripDropDownButton3.Image = (Image)resources.GetObject("toolStripDropDownButton3.Image");
+            toolStripDropDownButton3.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            toolStripDropDownButton3.Size = new Size(40, 22);
+            toolStripDropDownButton3.Text = "Edit";
+            // 
+            // clearToolStripMenuItem
+            // 
+            clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            clearToolStripMenuItem.Size = new Size(101, 22);
+            clearToolStripMenuItem.Text = "Clear";
+            clearToolStripMenuItem.Click += ClearButton_Click;
+            // 
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { brushesToolStripMenuItem, eraToolStripMenuItem, textToolStripMenuItem, fillToolStripMenuItem });
+            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(48, 22);
+            toolStripDropDownButton1.Text = "Tools";
+            // 
+            // brushesToolStripMenuItem
+            // 
+            brushesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { penToolStripMenuItem, eraserToolStripMenuItem });
+            brushesToolStripMenuItem.Name = "brushesToolStripMenuItem";
+            brushesToolStripMenuItem.Size = new Size(180, 22);
+            brushesToolStripMenuItem.Text = "Brushes";
+            brushesToolStripMenuItem.Click += brushToolStripMenuItem_Click;
+            // 
+            // penToolStripMenuItem
+            // 
+            penToolStripMenuItem.CheckOnClick = true;
+            penToolStripMenuItem.Name = "penToolStripMenuItem";
+            penToolStripMenuItem.Size = new Size(105, 22);
+            penToolStripMenuItem.Text = "Pen";
+            penToolStripMenuItem.Click += BrushButton_Click;
+            // 
+            // eraserToolStripMenuItem
+            // 
+            eraserToolStripMenuItem.Name = "eraserToolStripMenuItem";
+            eraserToolStripMenuItem.Size = new Size(105, 22);
+            eraserToolStripMenuItem.Text = "Eraser";
+            eraserToolStripMenuItem.Click += EraserButton_Click;
+            // 
+            // eraToolStripMenuItem
+            // 
+            eraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { squareToolStripMenuItem, circleToolStripMenuItem });
+            eraToolStripMenuItem.Name = "eraToolStripMenuItem";
+            eraToolStripMenuItem.Size = new Size(180, 22);
+            eraToolStripMenuItem.Text = "Shapes";
+            // 
+            // squareToolStripMenuItem
+            // 
+            squareToolStripMenuItem.Name = "squareToolStripMenuItem";
+            squareToolStripMenuItem.Size = new Size(110, 22);
+            squareToolStripMenuItem.Text = "Square";
+            // 
+            // circleToolStripMenuItem
+            // 
+            circleToolStripMenuItem.Name = "circleToolStripMenuItem";
+            circleToolStripMenuItem.Size = new Size(110, 22);
+            circleToolStripMenuItem.Text = "Circle";
+            // 
+            // textToolStripMenuItem
+            // 
+            textToolStripMenuItem.Name = "textToolStripMenuItem";
+            textToolStripMenuItem.Size = new Size(180, 22);
+            textToolStripMenuItem.Text = "Text";
+            // 
+            // fillToolStripMenuItem
+            // 
+            fillToolStripMenuItem.CheckOnClick = true;
+            fillToolStripMenuItem.Name = "fillToolStripMenuItem";
+            fillToolStripMenuItem.Size = new Size(180, 22);
+            fillToolStripMenuItem.Text = "Fill";
+            fillToolStripMenuItem.Click += FillButton_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(1465, 1062);
-            Controls.Add(button1);
-            Controls.Add(TextLabelButton);
-            Controls.Add(ShapesButton);
-            Controls.Add(LoadButton);
-            Controls.Add(SaveButton);
+            ClientSize = new Size(1026, 637);
+            Controls.Add(toolStrip1);
             Controls.Add(pictureBox1);
-            Controls.Add(BrushColorButton);
-            Controls.Add(EraserButton);
-            Controls.Add(BrushButton);
+            Margin = new Padding(2);
             Name = "Form1";
-            Text = "Painter? I hardly know her!";
+            Text = " ";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button BrushButton;
-        private Button EraserButton;
-        private Button BrushColorButton;
         private PictureBox pictureBox1;
-        private Button SaveButton;
-        private Button LoadButton;
-        private Button ShapesButton;
-        private Button TextLabelButton;
-        private Button button1;
+        private ToolStrip toolStrip1;
+        private ToolStripDropDownButton toolStripDropDownButton2;
+        private ToolStripMenuItem loadToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem brushesToolStripMenuItem;
+        private ToolStripMenuItem eraToolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton3;
+        private ToolStripMenuItem clearToolStripMenuItem;
+        private ToolStripMenuItem penToolStripMenuItem;
+        private ToolStripMenuItem eraserToolStripMenuItem;
+        private ToolStripMenuItem squareToolStripMenuItem;
+        private ToolStripMenuItem circleToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem;
+        private ToolStripMenuItem fillToolStripMenuItem;
     }
 }
