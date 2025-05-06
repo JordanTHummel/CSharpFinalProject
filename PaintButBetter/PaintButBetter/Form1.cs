@@ -123,7 +123,7 @@ namespace PaintButBetter
             using (Form textForm = new Form())
             {
                 textForm.Text = "Enter Text";
-                textForm.Size = new Size(300, 150);
+                textForm.Size = new Size(300, 90);
                 TextBox inputBox = new TextBox
                 {
                     Dock = DockStyle.Top
@@ -155,7 +155,7 @@ namespace PaintButBetter
 
         private void PlaceText(Point location)
         {
-            using (Font font = new Font("Comic Sans", 16))
+            using (Font font = new Font("Comic Sans MS", 16))
             {
                 // Draw inputted text on clicks location using the above font definition
                 graphics.DrawString(textToDraw, font, Brushes.Black, location.X, location.Y);

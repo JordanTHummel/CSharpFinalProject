@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaintButBetter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad2117fe895666f25f198180543d2def76c9cb21")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaintButBetter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaintButBetter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
