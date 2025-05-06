@@ -1,66 +1,8 @@
-    using System;
-    using System.Drawing;
-    using System.Windows.Forms;
-	using System.Collections.Generic;
-    using Timer = System.Windows.Forms.Timer; //timer was giving error that timer was ambigious between to different classes and need to specify
+using Timer = System.Windows.Forms.Timer; //timer was giving error that timer was ambigious between to different classes and need to specify
 
-public partial class MainForm : Form
-{
-    public MainForm();
-    {
-        InitalizeComponent();
-
-        // Example: Pick a canvas size
-        SetCanvasSize(2); //1, 2, or 3
-    }
-
-    private void SetCanvasSize(int choice)
-    {
-        switch (choice)
-        {
-		//These are test numbers for the moment
-            case 1:
-                this.Size = new Size(640, 480);
-                break;
-            case 2:
-                this.Size = new Size(800, 600);
-                break;
-            case 3:
-                this.Size = new Size(1024, 768);
-                break;
-            default:
-            MessageBox.Show("Invalid choice.  Please pick 1, 2, or 3.");
-        }
-    }
-}
-
-
-public partial class MainForm : Form
-{
-    public MainForm()
-    {
-        InitializeComponent();
-        this.FormClosing += MainForm_FormClosing;
-    }
-
-    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        DialogResult result = MessageBox.Show(
-            "Are you sure you want to exit?",
-            "Exit Confirmation",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-            );
-
-        if (result == DialogResult.No)
-        {
-            e.Cancel = true; // Cancel closing if user selects No
-        }
-    }
-}
 
 namespace PaintButBetter
-    {
+{
     public partial class Form1 : Form
     {
         private Bitmap canvas;
@@ -68,6 +10,12 @@ namespace PaintButBetter
         private bool isDrawing = false;
         private Point lastPoint;
         private Timer autoSaveTimer;
+        private Pen pen = new Pen(Color.Black, 5);
+        private enum ShapeType { None, Square, Circle, Rectangle, Triangle }
+        private ShapeType currentShape = ShapeType.None;
+        private string textToDraw;
+        private Color penColor = Color.Black;
+
 
 
         public Form1()
@@ -76,13 +24,19 @@ namespace PaintButBetter
             InitializeCanvas();
             HookEvents();
 
-          
+
 
             autoSaveTimer = new Timer(); //create new timer 
             autoSaveTimer.Interval = 1000; //set to however long want
             autoSaveTimer.Tick += AutoSaveTimer_Tick; //same as button logic, sets timer to the actual save
             autoSaveTimer.Start();
 
+            //makes the pen look good
+
+            penToolStripMenuItem.Checked = true;
+            pen = new Pen(Color.Black, 5);
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
 
         }
 
@@ -102,30 +56,44 @@ namespace PaintButBetter
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-		{
-    		if (penToolStripMenuItem.Checked)
-    		{
-        		isDrawing = true;
-        		lastPoint = e.Location;
-	    	}
+        {
+            if (currentShape != ShapeType.None)
+            {
+                DrawShape(e.Location);
+                // reset shape
+                currentShape = ShapeType.None;
+                return;
+            }
 
-    		if (fillToolStripMenuItem.Checked)
-		    {
-		        Color inital = canvas.GetPixel(e.X, e.Y); //gets color of initial pixel (we're filling in all pixels of that color)
-		        Color replacement = Color.Blue; //we'll figure out color later, blue for now
-		        Fill(e.X, e.Y, inital, replacement); //calls method to fill in pixel
-		        
-		    }
-		}
+            if (!string.IsNullOrWhiteSpace(textToDraw))
+            {
+                PlaceText(e.Location);
+                // Reset cause we dont want to draw a text string everytime we click
+                textToDraw = "";
+                return;
+            }
+
+            if (penToolStripMenuItem.Checked || eraserToolStripMenuItem.Checked)
+            {
+                isDrawing = true;
+                lastPoint = e.Location;
+            }
+
+            if (fillToolStripMenuItem.Checked)
+            {
+                Color inital = canvas.GetPixel(e.X, e.Y); //gets color of initial pixel (we're filling in all pixels of that color)
+                Color replacement = Color.Blue; //we'll figure out color later, blue for now
+                Fill(e.X, e.Y, inital); //calls method to fill in pixel
+
+            }
+        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e) // this will have to be changed when you work on brush
         {
             if (isDrawing)
             {
-                using (Pen pen = new Pen(Color.Black, 2))
-                {
-                    graphics.DrawLine(pen, lastPoint, e.Location);
-                }
+                graphics.DrawLine(pen, lastPoint, e.Location);
+
                 lastPoint = e.Location;
                 pictureBox1.Invalidate();
             }
@@ -139,71 +107,163 @@ namespace PaintButBetter
         private void BrushButton_Click(object sender, EventArgs e)
         {
             UncheckTools();
-			penToolStripMenuItem.Checked = true;
+            penToolStripMenuItem.Checked = true;
+            pen = new Pen(penColor, 5);
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
         private void EraserButton_Click(object sender, EventArgs e)
         {
             UncheckTools();
-			eraserToolStripMenuItem.Checked = true;
+            eraserToolStripMenuItem.Checked = true;
+            pen = new Eraser(pen.Width).Pen;
         }
 
-        private void BrushColorButton_Click(object sender, EventArgs e)
-        {
-            // color mode
-        }
-
-        private void ShapesButton_Click(object sender, EventArgs e)
-        {
-            // create shapes
-        }
+        
 
         private void TextLabelButton_Click(object sender, EventArgs e)
         {
-            // add text
+            // Very similar to the shapes
+            using (Form textForm = new Form())
+            {
+                textForm.Text = "Enter Text";
+                textForm.Size = new Size(300, 90);
+                TextBox inputBox = new TextBox
+                {
+                    Dock = DockStyle.Top
+                };
+                Button drawTextButton = new Button
+                {
+                    Text = "OK",
+                    Dock = DockStyle.Bottom
+                };
+                // Using lambda expression to add
+                drawTextButton.Click += (s, ev) =>
+                {
+                    // If something was entered and the button to submit was clicked
+                    if (!string.IsNullOrWhiteSpace(inputBox.Text))
+                    {
+                        // Update the textToDraw variable
+                        textToDraw = inputBox.Text;
+                        // Close the form
+                        textForm.Close();
+                    }
+                };
+                // Add the elements of the form to the form
+                textForm.Controls.Add(inputBox);
+                textForm.Controls.Add(drawTextButton);
+                // Below will make it so must submit text or exit before moving on
+                textForm.ShowDialog();
+            }
         }
 
-  		private void FillButton_Click(object sender, EventArgs e)
-		{
-		    UncheckTools();
-		    fillToolStripMenuItem.Checked = true;
-		}
+        private void PlaceText(Point location)
+        {
+            using (Font font = new Font("Comic Sans MS", 16))
+            {
+                // Draw inputted text on clicks location using the above font definition
+                graphics.DrawString(textToDraw, font, Brushes.Black, location.X, location.Y);
+            }
+            // Invalidates the entire surface of the control and causes the control to be redrawn.
+            pictureBox1.Invalidate();
+        }
 
-		private void Fill(int x, int y, Color initial, Color replacement)
-		{
-		
-		    Stack<Point> pixels = new Stack<Point>(); //creates stack to hold pixels to fill
-		
-		    bool[,] alreadyVisited = new bool[canvas.Width, canvas.Height]; //prevents checking same pixels twice
-		
-		    pixels.Push(new Point(x, y)); //creates starting point from mouse
-		
-		    while (pixels.Count > 0) //looping while there's more pixels to fill
-		    {
-		        Point p = pixels.Pop();
-		        int nextX = p.X;
-		        int nextY = p.Y;
-		
-		        if (nextX < 0 || nextY < 0 || nextX >= canvas.Width || nextY >= canvas.Height) continue;
-		
-		        if (alreadyVisited[nextX, nextY]) continue;
-		
-		        if (canvas.GetPixel(nextX, nextY) != initial) continue;
-		
-		        alreadyVisited[nextX, nextY] = true;
-		
-		        canvas.SetPixel(nextX, nextY, replacement);
-		
-		        pixels.Push(new Point(nextX + 1, nextY));
-		        pixels.Push(new Point(nextX - 1, nextY));
-		        pixels.Push(new Point(nextX, nextY + 1));
-		        pixels.Push(new Point(nextX, nextY - 1));
-		    }
-		
-		
-		    pictureBox1.Invalidate();
-		
-		}
+        // SHAPES TOOL BELOW
+        private void squareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Square;
+        }
+
+        private void circleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Circle;
+        }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Rectangle;
+        }
+
+        private void triangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Triangle;
+        }
+
+        private void DrawShape(Point location)
+        {
+            Pen shapePen = new Pen(Color.Black, 2);
+            // Use switch statement to find which shape to draw
+            switch (currentShape)
+            {
+                case ShapeType.Square:
+                    graphics.DrawRectangle(shapePen, location.X, location.Y, 100, 100);
+                    break;
+                case ShapeType.Circle:
+                    graphics.DrawEllipse(shapePen, location.X, location.Y, 100, 100);
+                    break;
+                case ShapeType.Rectangle:
+                    graphics.DrawRectangle(shapePen, location.X, location.Y, 200, 100);
+                    break;
+                case ShapeType.Triangle:
+                    Point[] trianglePoints =
+                    {
+                new Point(location.X, location.Y),
+                new Point(location.X + 50, location.Y + 100),
+                new Point(location.X - 50, location.Y + 100)
+            };
+                    graphics.DrawPolygon(shapePen, trianglePoints);
+                    break;
+            }
+            pictureBox1.Invalidate();
+        }
+
+
+        private void FillButton_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            fillToolStripMenuItem.Checked = true;
+        }
+
+        private void Fill(int x, int y, Color initial)
+        {
+
+            Stack<Point> pixels = new Stack<Point>(); //creates stack to hold pixels to fill
+
+            bool[,] alreadyVisited = new bool[canvas.Width, canvas.Height]; //prevents checking same pixels twice
+
+            pixels.Push(new Point(x, y)); //creates starting point from mouse
+
+            while (pixels.Count > 0) //looping while there's more pixels to fill
+            {
+                Point p = pixels.Pop();
+                int nextX = p.X;
+                int nextY = p.Y;
+
+                if (nextX < 0 || nextY < 0 || nextX >= canvas.Width || nextY >= canvas.Height) continue;
+
+                if (alreadyVisited[nextX, nextY]) continue;
+
+                if (canvas.GetPixel(nextX, nextY) != initial) continue;
+
+                alreadyVisited[nextX, nextY] = true;
+
+                canvas.SetPixel(nextX, nextY, penColor);
+
+                pixels.Push(new Point(nextX + 1, nextY));
+                pixels.Push(new Point(nextX - 1, nextY));
+                pixels.Push(new Point(nextX, nextY + 1));
+                pixels.Push(new Point(nextX, nextY - 1));
+            }
+
+
+            pictureBox1.Invalidate();
+
+        }
 
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -247,19 +307,19 @@ namespace PaintButBetter
 
         }
 
-		private void UncheckTools()
-		{
-		    penToolStripMenuItem.Checked = false;
-		    eraserToolStripMenuItem.Checked = false;
-		    fillToolStripMenuItem.Checked = false;
-		    //add more as we add more tools
-		}
+        private void UncheckTools()
+        {
+            penToolStripMenuItem.Checked = false;
+            eraserToolStripMenuItem.Checked = false;
+            fillToolStripMenuItem.Checked = false;
+            //add more as we add more tools
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // ignore
         }
-        
+
 
         private void AutoSaveTimer_Tick(object sender, EventArgs e)
         {
@@ -273,14 +333,58 @@ namespace PaintButBetter
             pictureBox1.Invalidate();     // Refresh the screen
 
         }
-		private void toolStripLabel1_Click(object sender, EventArgs e)
-		{
-			//haven't used yet
-		}
-		
-		private void brushToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			//haven't used yet
-		}
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+            //haven't used yet
+        }
+
+        private void brushToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //haven't used yet
+        }
+
+        private void PenSizeUp(object sender, EventArgs e)
+        {
+            pen.Width++;
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+        private void PenSizeDown(object sender, EventArgs e)
+        {
+            pen.Width--;
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            TrackBar x = (TrackBar)sender;
+            pen.Width = x.Value * 5;
+        }
+
+        private void ColorButton(object sender, EventArgs e)
+        {
+            if (!eraserToolStripMenuItem.Checked)
+            {
+                pen.Color = ((Button)sender).BackColor;
+                penColor = pen.Color;
+            }
+        }
+
+        private void antialiasingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            antialiasingToolStripMenuItem.Checked = !antialiasingToolStripMenuItem.Checked;
+            if (antialiasingToolStripMenuItem.Checked)
+            {
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            }
+            else
+            {
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
+            }
+
+        }
+    
+    
     }
 }
