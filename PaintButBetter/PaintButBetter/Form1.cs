@@ -4,6 +4,60 @@
 	using System.Collections.Generic;
     using Timer = System.Windows.Forms.Timer; //timer was giving error that timer was ambigious between to different classes and need to specify
 
+public partial class MainForm : Form
+{
+    public MainForm();
+    {
+        InitalizeComponent();
+
+        // Example: Pick a canvas size
+        SetCanvasSize(2); //1, 2, or 3
+    }
+
+    private void SetCanvasSize(int choice)
+    {
+        switch (choice)
+        {
+		//These are test numbers for the moment
+            case 1:
+                this.Size = new Size(640, 480);
+                break;
+            case 2:
+                this.Size = new Size(800, 600);
+                break;
+            case 3:
+                this.Size = new Size(1024, 768);
+                break;
+            default:
+            MessageBox.Show("Invalid choice.  Please pick 1, 2, or 3.");
+        }
+    }
+}
+
+
+public partial class MainForm : Form
+{
+    public MainForm()
+    {
+        InitializeComponent();
+        this.FormClosing += MainForm_FormClosing;
+    }
+
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        DialogResult result = MessageBox.Show(
+            "Are you sure you want to exit?",
+            "Exit Confirmation",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+        if (result == DialogResult.No)
+        {
+            e.Cancel = true; // Cancel closing if user selects No
+        }
+    }
+}
 
 namespace PaintButBetter
     {
