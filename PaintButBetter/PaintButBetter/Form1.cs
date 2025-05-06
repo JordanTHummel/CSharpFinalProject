@@ -14,9 +14,9 @@ namespace PaintButBetter
         private bool isDrawing = false;
         private Point lastPoint;
         private Timer autoSaveTimer;
-        // Fields for tracking what the user wants to draw on the canvas
-        private string? shapeToDraw = null;
-        private string? textToDraw = null;
+        private enum ShapeType { None, Square, Circle, Rectangle, Triangle }
+        private ShapeType currentShape = ShapeType.None;
+        private string textToDraw;
 
         public Form1()
         {
@@ -51,6 +51,22 @@ namespace PaintButBetter
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            if (currentShape != ShapeType.None)
+            {
+                DrawShape(e.Location);
+                // reset shape
+                currentShape = ShapeType.None; 
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(textToDraw))
+            {
+                PlaceText(e.Location);
+                // Reset cause we dont want to draw a text string everytime we click
+                textToDraw = "";
+                return;
+            }
+
             if (penToolStripMenuItem.Checked)
             {
                 isDrawing = true;
@@ -101,67 +117,6 @@ namespace PaintButBetter
             // color mode
         }
 
-        private void ShapesButton_Click(object sender, EventArgs e) // Jordan
-        {
-            // Create a new window, displaying shape options to select from
-            using (Form shapeForm = new Form())
-            {
-                shapeForm.Text = "Choose a Shape";
-                shapeForm.Size = new Size(200, 250);
-                // Button for selecting to draw a rectangle
-                Button rectButton = new Button
-                {
-                    Text = "Rectangle",
-                    // Makes sure buttons are aligned from top to bottom
-                    Dock = DockStyle.Top
-                };
-                // Button for selecting to draw a square
-                Button squareButton = new Button
-                {
-                    Text = "Square",
-                    Dock = DockStyle.Top
-                };
-                // Button for selecting to draw a circle
-                Button circleButton = new Button
-                {
-                    Text = "Circle",
-                    Dock = DockStyle.Top
-                };
-                // Button for selecting to draw a triangle
-                Button triangleButton = new Button
-                {
-                    Text = "Triangle",
-                    Dock = DockStyle.Top
-                };
-                // Using a lambda expression, to add an event handler on click of one the elements to set field shapeToDraw
-                // Just updates the shapeToDraw element and then closes the new form
-                rectButton.Click += (s, ev) =>
-                {
-                    shapeToDraw = "Rectangle";
-                    shapeForm.Close();
-                };
-                squareButton.Click += (s, ev) =>
-                {
-                    shapeToDraw = "Square";
-                    shapeForm.Close();
-                };
-                circleButton.Click += (s, ev) =>
-                {
-                    shapeToDraw = "Circle";
-                    shapeForm.Close();
-                };
-                triangleButton.Click += (s, ev) =>
-                {
-                    shapeToDraw = "Triangle";
-                    shapeForm.Close();
-                };
-                // Adding each of the buttons to the shapeform
-                shapeForm.Controls.AddRange(new Control[] { triangleButton, circleButton, squareButton, rectButton });
-                // Below will make it so must select a shape or exit before moving on
-                shapeForm.ShowDialog();
-            }
-        }
-
         private void TextLabelButton_Click(object sender, EventArgs e) // Jordan
         {
             // Very similiar to the shapes
@@ -198,52 +153,15 @@ namespace PaintButBetter
             }
         }
 
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e) // Jordan
+        private void PlaceText(Point location)
         {
-            // Sanity check
-            if (graphics == null)
+            using (Font font = new Font("Comic Sans", 16))
             {
-                return;
+                // Draw inputted text on clicks location using the above font definition
+                graphics.DrawString(textToDraw, font, Brushes.Black, location.X, location.Y);
             }
-            // If shapeToDraw is null or empty, do not draw a shape on click
-            if (!string.IsNullOrEmpty(shapeToDraw))
-            {
-                // Switch Statement to test shapeToDraw
-                switch (shapeToDraw)
-                {
-                    case "Rectangle":
-                        graphics.DrawRectangle(new Pen(Color.Black, 2), e.X, e.Y, 200, 100);
-                        break;
-                    case "Square":
-                        graphics.DrawRectangle(new Pen(Color.Black, 2), e.X, e.Y, 100, 100);
-                        break;
-                    case "Circle":
-                        graphics.DrawEllipse(new Pen(Color.Black, 2), e.X, e.Y, 100, 100);
-                        break;
-                    case "Triangle":
-                        Point[] points = { new Point(e.X, e.Y), new Point(e.X - 50, e.Y + 100), new Point(e.X + 50, e.Y + 100) };
-                        graphics.DrawPolygon(new Pen(Color.Black, 2), points);
-                        break;
-                        // No default cause of no need to do anything in the default case
-                }
-                // Reset because dont want to draw a shape every time we click
-                shapeToDraw = null;
-                // Invalidates the entire surface of the control and causes the control to be redrawn.
-                pictureBox1.Invalidate();
-            }
-            // If textToDraw is null or empty no need to draw text on click
-            else if (!string.IsNullOrEmpty(textToDraw))
-            {
-                using (Font font = new Font("Comic Sans", 16))
-                {
-                    // Draw inputted text on clicks location using the above font definition
-                    graphics.DrawString(textToDraw, font, Brushes.Black, e.Location);
-                }
-                // Reset cause we dont want to draw a text string everytime we click
-                textToDraw = null;
-                // Invalidates the entire surface of the control and causes the control to be redrawn.
-                pictureBox1.Invalidate();
-            }
+            // Invalidates the entire surface of the control and causes the control to be redrawn.
+            pictureBox1.Invalidate();
         }
 
         private void FillButton_Click(object sender, EventArgs e)
@@ -288,7 +206,6 @@ namespace PaintButBetter
 
         }
 
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveDialog = new SaveFileDialog())
@@ -311,7 +228,6 @@ namespace PaintButBetter
                 }
             }
         }
-
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
@@ -343,7 +259,6 @@ namespace PaintButBetter
             // ignore
         }
 
-
         private void AutoSaveTimer_Tick(object sender, EventArgs e)
         {
             string path = "autosave.png"; //autosave file
@@ -356,6 +271,7 @@ namespace PaintButBetter
             pictureBox1.Invalidate();     // Refresh the screen
 
         }
+        
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             //haven't used yet
@@ -364,6 +280,59 @@ namespace PaintButBetter
         private void brushToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //haven't used yet
+        }
+
+        // SHAPES TOOL BELOW
+        private void squareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Square;
+        }
+
+        private void circleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Circle;
+        }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Rectangle;
+        }
+
+        private void triangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckTools();
+            currentShape = ShapeType.Triangle;
+        }
+
+        private void DrawShape(Point location)
+        {
+            Pen shapePen = new Pen(Color.Black, 2);
+            // Use switch statement to find which shape to draw
+            switch (currentShape)
+            {
+                case ShapeType.Square:
+                    graphics.DrawRectangle(shapePen, location.X, location.Y, 100, 100);
+                    break;
+                case ShapeType.Circle:
+                    graphics.DrawEllipse(shapePen, location.X, location.Y, 100, 100);
+                    break;
+                case ShapeType.Rectangle:
+                    graphics.DrawRectangle(shapePen, location.X, location.Y, 200, 100);
+                    break;
+                case ShapeType.Triangle:
+                    Point[] trianglePoints = 
+                    {
+                        new Point(location.X, location.Y),
+                        new Point(location.X + 50, location.Y + 100),
+                        new Point(location.X - 50, location.Y + 100)
+                    };
+                    graphics.DrawPolygon(shapePen, trianglePoints);
+                    break;
+            }
+            pictureBox1.Invalidate();
         }
     }
 }

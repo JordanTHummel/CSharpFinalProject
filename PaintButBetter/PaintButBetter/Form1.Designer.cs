@@ -42,6 +42,8 @@ namespace PaintButBetter
             eraToolStripMenuItem = new ToolStripMenuItem();
             squareToolStripMenuItem = new ToolStripMenuItem();
             circleToolStripMenuItem = new ToolStripMenuItem();
+            rectangleToolStripMenuItem = new ToolStripMenuItem();
+            triangleToolStripMenuItem = new ToolStripMenuItem();
             textToolStripMenuItem = new ToolStripMenuItem();
             fillToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -58,7 +60,6 @@ namespace PaintButBetter
             pictureBox1.Size = new Size(983, 517);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
-            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // toolStrip1
             // 
@@ -130,23 +131,51 @@ namespace PaintButBetter
             // 
             penToolStripMenuItem.CheckOnClick = true;
             penToolStripMenuItem.Name = "penToolStripMenuItem";
-            penToolStripMenuItem.Size = new Size(105, 22);
+            penToolStripMenuItem.Size = new Size(180, 22);
             penToolStripMenuItem.Text = "Pen";
             penToolStripMenuItem.Click += BrushButton_Click;
             // 
             // eraserToolStripMenuItem
             // 
             eraserToolStripMenuItem.Name = "eraserToolStripMenuItem";
-            eraserToolStripMenuItem.Size = new Size(105, 22);
+            eraserToolStripMenuItem.Size = new Size(180, 22);
             eraserToolStripMenuItem.Text = "Eraser";
             eraserToolStripMenuItem.Click += EraserButton_Click;
             // 
             // eraToolStripMenuItem
             // 
+            eraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { squareToolStripMenuItem, circleToolStripMenuItem, rectangleToolStripMenuItem, triangleToolStripMenuItem });
             eraToolStripMenuItem.Name = "eraToolStripMenuItem";
             eraToolStripMenuItem.Size = new Size(180, 22);
             eraToolStripMenuItem.Text = "Shapes";
-            eraToolStripMenuItem.Click += ShapesButton_Click;
+            // 
+            // squareToolStripMenuItem
+            // 
+            squareToolStripMenuItem.Name = "squareToolStripMenuItem";
+            squareToolStripMenuItem.Size = new Size(180, 22);
+            squareToolStripMenuItem.Text = "Square";
+            squareToolStripMenuItem.Click += squareToolStripMenuItem_Click;
+            // 
+            // circleToolStripMenuItem
+            // 
+            circleToolStripMenuItem.Name = "circleToolStripMenuItem";
+            circleToolStripMenuItem.Size = new Size(180, 22);
+            circleToolStripMenuItem.Text = "Circle";
+            circleToolStripMenuItem.Click += circleToolStripMenuItem_Click;
+            // 
+            // rectangleToolStripMenuItem
+            // 
+            rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
+            rectangleToolStripMenuItem.Size = new Size(180, 22);
+            rectangleToolStripMenuItem.Text = "Rectangle";
+            rectangleToolStripMenuItem.Click += rectangleToolStripMenuItem_Click;
+            // 
+            // triangleToolStripMenuItem
+            // 
+            triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
+            triangleToolStripMenuItem.Size = new Size(180, 22);
+            triangleToolStripMenuItem.Text = "Triangle";
+            triangleToolStripMenuItem.Click += triangleToolStripMenuItem_Click;
             // 
             // textToolStripMenuItem
             // 
@@ -200,5 +229,7 @@ namespace PaintButBetter
         private ToolStripMenuItem circleToolStripMenuItem;
         private ToolStripMenuItem textToolStripMenuItem;
         private ToolStripMenuItem fillToolStripMenuItem;
+        private ToolStripMenuItem rectangleToolStripMenuItem;
+        private ToolStripMenuItem triangleToolStripMenuItem;
     }
 }

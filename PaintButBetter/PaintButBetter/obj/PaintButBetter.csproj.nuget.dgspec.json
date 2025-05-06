@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj": {}
+    "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main2\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj": {
+    "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main2\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj",
+        "projectUniqueName": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main2\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj",
         "projectName": "PaintButBetter",
-        "projectPath": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj",
+        "projectPath": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main2\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\PaintButBetter.csproj",
         "packagesPath": "C:\\Users\\hummj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\obj\\",
+        "outputPath": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main2\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
