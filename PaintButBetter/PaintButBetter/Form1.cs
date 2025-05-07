@@ -26,7 +26,7 @@ namespace PaintButBetter
 
         // This will run before the program starts to ask what canvas size to choose from
           string input = Microsoft.VisualBasic.Interaction.InputBox(
-              "Choose a Canvas size: \n1 = 800 x 600\n2 = 1920 x 1080\n3 = 3840 x 2160",
+              "Choose a Canvas size: \n1 = 800 x 600\n2 = 1600 x 900\n3 = 1920 x 1080",
               "Canvas Size", "1");
 
           if (int.TryParse(input, out int choice))
@@ -63,12 +63,13 @@ namespace PaintButBetter
                     pictureBox1.Size = new Size(800, 600);
                     break;
                 case 2:
-                    pictureBox1.Size = new Size(1920, 1080);
+                    pictureBox1.Size = new Size(1600, 900);
                     break;
                 case 3:
-                    pictureBox1.Size = new Size(3840, 2160);
+                    pictureBox1.Size = new Size(1920, 1080);
                     break;
             }
+            InitializeCanvas();
         }
 
         private void InitializeCanvas()
