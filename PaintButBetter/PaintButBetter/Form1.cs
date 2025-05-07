@@ -24,6 +24,21 @@ namespace PaintButBetter
             InitializeCanvas();
             HookEvents();
 
+        // This will run before the program starts to ask what canvas size to choose from
+          string input = Microsoft.VisualBasic.Interaction.InputBox(
+              "Choose a Canvas size: \n1 = 800 x 600\n2 = 1920 x 1080\n3 = 3840 x 2160",
+              "Canvas Size", "1");
+
+          if (int.TryParse(input, out int choice))
+          {
+              SetCanvasSize(choice);
+          }
+          else
+          {
+              MessageBox.Show("Invalid input.  Using default size.");
+              SetCanvasSize(1);
+          }
+
 
 
             autoSaveTimer = new Timer(); //create new timer 
