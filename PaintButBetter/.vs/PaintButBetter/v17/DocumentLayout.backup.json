@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\",
+  "WorkspaceRootPath": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\tntwi\\source\\repos\\paintbutbetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\hummj\\downloads\\csharpfinalproject-main-3\\csharpfinalproject-main\\paintbutbetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\tntwi\\source\\repos\\paintbutbetter\\paintbutbetter\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\hummj\\downloads\\csharpfinalproject-main-3\\csharpfinalproject-main\\paintbutbetter\\paintbutbetter\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\tntwi\\source\\repos\\paintbutbetter\\paintbutbetter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|c:\\users\\hummj\\downloads\\csharpfinalproject-main-3\\csharpfinalproject-main\\paintbutbetter\\paintbutbetter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0AAAA75-CE3E-4CEC-BF5E-D1F4AE84ABCA}|PaintButBetter\\PaintButBetter.csproj|solutionrelative:paintbutbetter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Form1.cs",
-              "ToolTip": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.cs",
+              "ToolTip": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.cs",
               "RelativeToolTip": "PaintButBetter\\Form1.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAA7wA8AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAkwKcAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T16:12:11.11Z",
               "EditorCaption": ""
@@ -45,9 +45,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Program.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Program.cs",
-              "ToolTip": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Program.cs",
+              "ToolTip": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Program.cs",
               "RelativeToolTip": "PaintButBetter\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,28 +55,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.Designer.cs",
               "RelativeToolTip": "PaintButBetter\\Form1.Designer.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAswLEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAE0BAAAAAAAAAAAowBYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T15:57:41.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T15:57:41.314Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.cs",
               "RelativeDocumentMoniker": "PaintButBetter\\Form1.cs",
-              "ToolTip": "C:\\Users\\tntwi\\source\\repos\\PaintButBetter\\PaintButBetter\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\hummj\\Downloads\\CSharpFinalProject-main-3\\CSharpFinalProject-main\\PaintButBetter\\PaintButBetter\\Form1.cs [Design]",
               "RelativeToolTip": "PaintButBetter\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T15:47:06.583Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-24T15:47:06.583Z"
             }
           ]
         }

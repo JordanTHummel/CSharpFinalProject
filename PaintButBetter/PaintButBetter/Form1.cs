@@ -163,7 +163,7 @@ namespace PaintButBetter
             using (Font font = new Font("Comic Sans MS", 16))
             {
                 // Draw inputted text on clicks location using the above font definition
-                graphics.DrawString(textToDraw, font, Brushes.Black, location.X, location.Y);
+                graphics.DrawString(textToDraw, font, pen.Brush, location.X, location.Y);
             }
             // Invalidates the entire surface of the control and causes the control to be redrawn.
             pictureBox1.Invalidate();
@@ -196,18 +196,17 @@ namespace PaintButBetter
 
         private void DrawShape(Point location)
         {
-            Pen shapePen = new Pen(Color.Black, 2);
             // Use switch statement to find which shape to draw
             switch (currentShape)
             {
                 case ShapeType.Square:
-                    graphics.DrawRectangle(shapePen, location.X, location.Y, 100, 100);
+                    graphics.DrawRectangle(pen, location.X, location.Y, 100, 100);
                     break;
                 case ShapeType.Circle:
-                    graphics.DrawEllipse(shapePen, location.X, location.Y, 100, 100);
+                    graphics.DrawEllipse(pen, location.X, location.Y, 100, 100);
                     break;
                 case ShapeType.Rectangle:
-                    graphics.DrawRectangle(shapePen, location.X, location.Y, 200, 100);
+                    graphics.DrawRectangle(pen, location.X, location.Y, 200, 100);
                     break;
                 case ShapeType.Triangle:
                     Point[] trianglePoints =
@@ -216,7 +215,7 @@ namespace PaintButBetter
                 new Point(location.X + 50, location.Y + 100),
                 new Point(location.X - 50, location.Y + 100)
             };
-                    graphics.DrawPolygon(shapePen, trianglePoints);
+                    graphics.DrawPolygon(pen, trianglePoints);
                     break;
             }
             pictureBox1.Invalidate();
