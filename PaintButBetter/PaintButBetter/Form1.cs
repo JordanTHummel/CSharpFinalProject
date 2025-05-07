@@ -55,6 +55,22 @@ namespace PaintButBetter
 
         }
 
+        private void SetCanvasSize(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    pictureBox1.Size = new Size(800, 600);
+                    break;
+                case 2:
+                    pictureBox1.Size = new Size(1920, 1080);
+                    break;
+                case 3:
+                    pictureBox1.Size = new Size(3840, 2160);
+                    break;
+            }
+        }
+
         private void InitializeCanvas()
         {
             canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
