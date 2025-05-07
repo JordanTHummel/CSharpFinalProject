@@ -75,6 +75,13 @@ namespace PaintButBetter
             // 
             // toolStrip1
             // 
+            // This gives the option to set the canvas size in the toolbox
+            ToolStripDropDownButton canvasSizeDropDown = new ToolStripDropDownButton("Canvas Size");
+            canvasSizeDropDown.DropDownItems.Add("Small (800 x 600)", null, (s, e) => SetCanvasSize(1)); 
+            canvasSizeDropDown.DropDownItems.Add("Medium (1920 x 1080", null, (s, e) => SetCanvasSize(2));
+            canvasSizeDropDown.DropDownItems.Add("Large (3840 x 2160", null, (s, e) => SetCanvasSize(3));
+            toolStrip1.Items.Add(canvasSizeDropDown);
+            
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton2, toolStripDropDownButton3, toolStripDropDownButton1, toolStripSeparator1 });
             toolStrip1.Location = new Point(0, 0);
