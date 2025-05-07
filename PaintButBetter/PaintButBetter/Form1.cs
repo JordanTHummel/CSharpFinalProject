@@ -327,17 +327,22 @@ namespace PaintButBetter
             {
                 openDialog.Title = "Enter Image Import Location";
                 openDialog.Filter = "PNG Image|*.png";
-
+        
                 if (openDialog.ShowDialog() == DialogResult.OK)
                 {
-                    graphics.DrawImage(Image.FromFile(openDialog.FileName), 0, 0);
+                    
+                    Image img = Image.FromFile(openDialog.FileName);
+                    pictureBox1.Size = new Size(img.Width, img.Height);
+                    canvas = new Bitmap(img.Width, img.Height);
+                    graphics = Graphics.FromImage(canvas);
+                    graphics.DrawImage(img, 0, 0);
                     pictureBox1.Image = canvas;
                 }
-
+        
             }
-
+        
         }
-
+        
         private void UncheckTools()
         {
             penToolStripMenuItem.Checked = false;
